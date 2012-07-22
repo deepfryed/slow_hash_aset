@@ -33,7 +33,7 @@ VALUE hc_allocate(VALUE klass) {
 }
 
 VALUE hc_initialize(VALUE self) {
-    PGconn *c = PQconnectdb("dbname='swift_test' host='127.0.0.1' port='5432' sslmode='disable'");
+    PGconn *c = PQconnectdb("dbname='slow_hash_aset' host='127.0.0.1' port='5432' sslmode='disable'");
     if (!c)
         rb_raise(rb_eStandardError, "unable to connect to pg");
     DATA_PTR(self) = c;
