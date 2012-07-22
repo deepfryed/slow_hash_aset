@@ -10,10 +10,11 @@ rb_hash_aset seems to perform poorly along with PQexec
 * ruby 1.9.3p125
 * create database `createdb slow_hash_aset`
 * create some sample data
-  ```
-   psql slow_hash_aset -c 'drop table if exists users'
-   psql slow_hash_aset -c "create table users as select id, 'name ' || id as name, now() as created_at from (select generate_series(1, 1000) as id) u"
-   ```
+
+```
+psql slow_hash_aset -c 'drop table if exists users'
+psql slow_hash_aset -c "create table users as select id, 'name ' || id as name, now() as created_at from (select generate_series(1, 1000) as id) u"
+```
 
 ## Run Bechmarks
 
