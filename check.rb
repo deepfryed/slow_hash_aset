@@ -9,15 +9,15 @@ iter = 100
 Benchmark.bm(30) do |bm|
   hc = HC.new
 
-  bm.report("execute without rb_hash_aset") do
+  bm.report("PQexec without rb_hash_aset") do
     iter.times {hc.execute_no_aset {|r| r }}
   end
 
-  bm.report("rb_hash_aset without execute") do
+  bm.report("rb_hash_aset without PQexec") do
     iter.times {hc.no_execute {|r| r }}
   end
 
-  bm.report("execute with rb_hash_aset") do
+  bm.report("PQexec with rb_hash_aset") do
     iter.times {hc.execute {|r| r }}
   end
 end
